@@ -4,4 +4,4 @@ metadata:
   name: redis-config
 data:  
   redis-host: redis-14176.c331.us-west1-1.gce.redns.redis-cloud.com
-  redis-port: 14176
+  redis-port: "14176"
