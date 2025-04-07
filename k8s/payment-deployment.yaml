@@ -25,12 +25,12 @@ spec:
         env:
         - name: redis-host # Name of the environment variable
           valueFrom:
-            ConfigMapKeyRef:
+            ConfigMcpKeyRef:
               name: redis-config # Name of where we reference from 
               key: redis-host # The value
         - name: redis-port # Name of the environment variable
           valueFrom:
-            ConfigMapKeyRef:
+            configMapKeyRef:
               name: redis-config # Name of where we reference from
               key: redis-port # The value
         - name: redis-password # Name of the environment variable
