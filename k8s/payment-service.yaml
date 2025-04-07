@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+spec:
+  # type: ClusterIP (default)
+  # selector: select pods to forward the requests to
+  selector:
+    # The label will have the same value with the label of the payment Pods.
+    # This is how to connect a service to a Pod.
+    app: payment
+  ports:
+    - protocol: TCP
+      # Service's port
+      port: 8000
+      # Pods port, the port that Service forwards the requests to, should be the same with payment's ContainerPort
+      targetPort: 8000

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-frontend-service
+spec:
+  type: NodePort # External service
+  # selector: select pods to forward the requests to
+  selector:
+    # The label will have the same value with the label of the inventory-frontend Pods.
+    # This is how to connect a service to a Pod.
+    app: inventory-frontend
+  ports:
+    - protocol: TCP
+      # Service's port
+      port: 3000
+      # Pods port, the port that Service forwards the requests to, should be the same with inventory-frontend's ContainerPort
+      targetPort: 3000
+      # The port that will be exposed as a static port, so it can be access from the internet (range: 30000-32767)
+      nodePort: 30100

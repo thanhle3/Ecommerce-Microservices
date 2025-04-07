@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-deployment
+  labels:
+    app: payment
+spec:
+  replicas: 1
+  selector:
+    # Match all Pods with label "payment" to the payment-deployment
+    matchLabels:
+      app: payment
+  # template is the configurations of the Pod 
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec:
+      # Container configurations within the pod 
+      containers: 
+      - name: payment
+        image: ?????????????:?????????
+        ports:
+        - containerPort: 8000 # Port where the container will listen to
+        env:
+        - name: redis-host # Name of the environment variable
+          valueFrom:
+            ConfigMapKeyRef:
+              name: redis-config # Name of where we reference from 
+              key: redis-host # The value
+        - name: redis-port # Name of the environment variable
+          valueFrom:
+            ConfigMapKeyRef:
+              name: redis-config # Name of where we reference from
+              key: redis-port # The value
+        - name: redis-password # Name of the environment variable
+          valueFrom:
+            secretKeyRef:
+              name: redis-secret # Name of where we reference from
+              key: redis-password # The value
+
+

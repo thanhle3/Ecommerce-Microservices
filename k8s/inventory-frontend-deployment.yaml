@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-frontend-deployment
+  labels:
+    app: inventory-frontend
+spec:
+  replicas: 1
+  selector:
+    # Match all Pods with label "inventory-frontend" to the inventory-frontend-deployment
+    matchLabels:
+      app: inventory-frontend
+  # template is the configurations of the Pod 
+  template:
+    metadata:
+      labels:
+        app: inventory-frontend
+    spec:
+      # Container configurations within the pod 
+      containers: 
+      - name: inventory-frontend
+        image: ?????????????:?????????
+        ports:
+        - containerPort: 3000 # Port where the container will listen to
+        
+
+

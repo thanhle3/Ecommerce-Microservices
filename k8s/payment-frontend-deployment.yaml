@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-frontend-deployment
+  labels:
+    app: payment-frontend
+spec:
+  replicas: 1
+  selector:
+    # Match all Pods with label "payment-frontend" to the payment-frontend-deployment
+    matchLabels:
+      app: payment-frontend
+  # template is the configurations of the Pod 
+  template:
+    metadata:
+      labels:
+        app: payment-frontend
+    spec:
+      # Container configurations within the pod 
+      containers: 
+      - name: payment-frontend
+        image: ?????????????:?????????
+        ports:
+        - containerPort: 3001 # Port where the container will listen to
+        
+
+
