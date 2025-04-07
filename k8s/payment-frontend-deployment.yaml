@@ -19,7 +19,7 @@ spec:
       # Container configurations within the pod 
       containers: 
       - name: payment-frontend
-        image: ?????????????:?????????
+        image: us-west2-docker.pkg.dev/csc258-ecommerce-microservices/final-project-repo/payment-frontend:latest
         ports:
         - containerPort: 3001 # Port where the container will listen to
         

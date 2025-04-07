@@ -19,7 +19,7 @@ spec:
       # Container configurations within the pod 
       containers: 
       - name: inventory
-        image: ?????????????:?????????
+        image: us-west2-docker.pkg.dev/csc258-ecommerce-microservices/final-project-repo/inventory:latest
         ports:
         - containerPort: 8000 # Port where the container will listen to
         env:
